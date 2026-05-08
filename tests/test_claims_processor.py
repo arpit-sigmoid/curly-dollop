@@ -62,7 +62,7 @@ def test_transform_claims(processor):
     assert 'year' in transformed_df.columns
     assert 'month' in transformed_df.columns
     assert 'processing_date' in transformed_df.columns
-    assert transformed_df['service_date'].dtype == 'datetime64[ns]'
+    assert pd.api.types.is_datetime64_any_dtype(transformed_df['service_date'])
 
 
 def test_transform_claims_standardizes_columns(processor):
