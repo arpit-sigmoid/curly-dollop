@@ -60,7 +60,7 @@ class ClaimsProcessor:
             pd.DataFrame: Transformed claims data
         """
         df = df or self.raw_data
-        if df is None:
+        if df is None or df.empty:
             raise ValueError("No data to transform. Run extract first.")
         
         logger.info("Starting data transformation")
